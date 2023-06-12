@@ -9,12 +9,16 @@ from plotly.subplots import make_subplots
 def forecast_plot(
     df1: pd.DataFrame,
     df2: pd.DataFrame,
+    date_col: str,
     pred: pd.Series,
     names: List[str],
     model_name: str,
     xaxis_title: str,
     yaxis_title: str,
 ):
+    df1.set_index(date_col, inplace=True)
+    df2.set_index(date_col, inplace=True)
+    
     fig = make_subplots(rows=1, cols=1, vertical_spacing=0.05)
 
     fig.add_trace(
@@ -77,5 +81,5 @@ def forecast_plot(
     fig.show()
 
 
-# if __name__ == "__main__":
-#     forecast_plot()
+if __name__ == "__main__":
+    forecast_plot()
