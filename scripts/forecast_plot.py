@@ -16,8 +16,8 @@ def forecast_plot(
     xaxis_title: str,
     yaxis_title: str,
 ):
-    df1.set_index(date_col, inplace=True)
-    df2.set_index(date_col, inplace=True)
+    df1 = df1.set_index(date_col)
+    df2 = df2.set_index(date_col)
     
     fig = make_subplots(rows=1, cols=1, vertical_spacing=0.05)
 
